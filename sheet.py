@@ -1,7 +1,7 @@
-class Tav:
-    def __init__(self, name: str, role: str):
+class Player:
+    def __init__(self, name: str, archetype: str):
         self.name = name
-        self.role = role
+        self.archetype = archetype
 
         self.level = 1
 
@@ -14,7 +14,10 @@ class Tav:
         self.luck = 0
 
     def print_character_sheet(self):
+        print("Vit-O-Matic Vigor Tester Results...")
         print("Name: "+self.name)
-        print("Role: "+self.role)
-        print("Level: "+self.level)
+        print("Archetype: "+self.archetype)
+        print("Level: "+str(self.level))
+        print("Good luck, buckaroo!")
+        
 
