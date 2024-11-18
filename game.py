@@ -7,63 +7,67 @@ def print_dramatic_text(text: str, delay=0.1):
         time.sleep(delay)
     print()
 
+# def generate_enemy()->int:
+    
 if __name__ == '__main__':
-    print_dramatic_text('Wild Wasteland')
-    print_dramatic_text('A mildly radioactive adventure set in the Fallout universe')
+    print_dramatic_text('\033[1;31m BREACH PROTOCOL\033[0;0m')
+    print('A high-stakes stint in a Lobotomy Corporation branch!')
     print()
-    print_dramatic_text('Our story begins in the Mojave wasteland. The sun rises, hitting your eyes.')
-    print()
-    # collecting user input
-    print('What\'s your name?')
-    print()
-    name = input('My name is...  ')
-    print()
-    print('Where do you come from?')
-    print()
-    print_dramatic_text('Dweller: I hail from Vault 13, a homely place.')
-    print_dramatic_text('Raider: I take from others for my own benefit.')
-    print_dramatic_text('Wastelander: I\'m just trying to make it through the blisteringly hot days post-War.')
-    print_dramatic_text('Knight: I\'m a member of the Brotherhood of Steel, who collect and protect technology.')
-    print_dramatic_text('Ranger: I\'m a member of the New California Republic, and are here in the Mojave as a lookout.')
-    print_dramatic_text('Legionnaire: As a loyal part of the fearsome Caesar\'s Legion, I have forgone my past as a tribemember and crowned myself with the golden laurels of the Legion.')
-    print_dramatic_text('Courier: I am a package courier for the Mojave Express, located in Primm.')
-    print_dramatic_text('Follower: I\'m a Follower of the Apocalypse- Despite the name, I\'m dedicated to helping out those around me in the wasteland.')
-    arch = input('I am a... ')
-    archetypes = ['dweller',
-                  'raider',
-                  'wastelander',
-                  'knight',
-                  'ranger', 
-                  'legionnaire', 
-                  'courier',
-                  'follower']
-    while arch.lower() not in archetypes:
-        print('Say that again?')
-        arch = input('I am a... ')
-print()
-print_dramatic_text('You step up to the \"Vit-O-Matic Vigor Tester\", and a light flickers to life.')
-print()
-print('You\'re S.P.E.C.I.A.L.! Let\'s see how you do...')
-print('You have 40 points to allocate into 8 categories.')
-print()
-print_dramatic_text('Strength: Raw, physical strength.')
-print_dramatic_text('Perception: How well you use your senses.')
-print_dramatic_text('Endurance: Health and overall fitness.')
-print_dramatic_text('Charisma: Charm and social skills.')
-print_dramatic_text('Intelligence: Basic intellect, curiosity in the world and adeptness at critical thinking.')
-print_dramatic_text('Agility: Quickness and agility.')
-print_dramatic_text('Luck: How often good things happen to you.')
+    print('Lobotomy Corporation, as a game, belongs to Project Moon.')
+    print('The rolling system in this adventure is taken from the community-made Project Moon TTRPG.')
+    print('Type \'begin workday\' to start.')
+    start = input()
+    if start == 'begin workday':
+        print_dramatic_text('An alarm clock beeps, and you instinctively hit it. The time is 06:42. Time for work.')
+        print_dramatic_text('You look down at your ID card as you stand in the elevator after rushing to get ready.')
+        print()
+        # collecting user input
+        print('What\'s your name?')
+        name = input('My name is...  ')
+        print()
+        print_dramatic_text('There are 9 Departments in your facility. They are, in order,')
+        print_dramatic_text('Control')
+        print_dramatic_text('Information')
+        print_dramatic_text('Training')
+        print_dramatic_text('Safety')
+        print_dramatic_text('Central Command')
+        print_dramatic_text('Welfare')
+        print_dramatic_text('Disciplinary')
+        print_dramatic_text('Record')
+        print_dramatic_text('Extraction')
+        print('To learn about a Department\'s function, type the name below. If you already know what each department does, type \'skip\'.')
+        control = print('Monitoring Abnormalities and planning of courses of action.')
+        information = print('Collection and organization of Abnormality data and construction of solutions to Abnormality-caused problems.')
+        training = print('Composition and regulation of company policy, management procedures, and training programs for new hires.')
+        safety = print('Establishment of strategies for multiple unfavorable scenarios, as well as construction of safety guidelines.')
+        central command = print('Department supervision and management revision.')
+        welfare = print('Damage control of Abnormality breaches to Agent wellbeing and construction of programs to better employee health.')
+        disciplinary = print('Handling of situations requiring force, be it panicking employee or breaching Abnormality.')
+        record = print('Recordkeeping of all information involving the facility.')
+        extraction = print('Handling of materials vital to facility upkeep, like Abnormality obtainment or E.G.O. distribution.')
+        skip = 
+        deptinfo = input()
+        print('What department do you work in?')
+        dept = input('I work in... ')
+        department = ['control',
+                    'information',
+                    'training',
+                    'safety',
+                    'central command', 
+                    'welfare', 
+                    'disciplinary',
+                    'record',
+                    'extraction']
+        while dept.lower() not in department:
+            print('That can\'t be right.')
+            dept = input('I work in... ')
+        print()
 
-    player = Player(name, arch)
+        player = Player(name, dept)
 
-    player.print_character_sheet()
+        player.print_character_sheet()
 
-print('The sun beats down on you, as you walk through the wasteland. You\'re trying to get to New Vegas, the legendary city untouched by the nuclear fire that had scorched the rest of the world.')
-if arch = knight:
-    print('The only sounds you hear are the thumping and hydraulics of the power armor you wear. It\'s far too hot to be shambling around in a hunk of metal, but at least there\'s air conditioning in this exosuit.')
-if arch = legionnaire, ranger:
-    print('You walk with the rest of your squadron.')
-else:
-    print('It\'s dead quiet, as per usual.')
-print('You are approached by a radscorpion.')
-print('Combat start!')
+        roll = player.roll()
+    else:
+        print('Come on, we both know how this works.')
+        start = input()

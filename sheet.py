@@ -1,23 +1,27 @@
+import random
+from draw import draw_d20
+
 class Player:
-    def __init__(self, name: str, archetype: str):
+    def __init__(self, name: str, department: str):
         self.name = name
-        self.archetype = archetype
+        self.department = department
 
         self.level = 1
 
-        self.strength = 0
-        self.perception = 0
-        self.endurance = 0
-        self.charisma = 0
-        self.intelligence = 0
-        self.agility = 0
-        self.luck = 0
+        self.fortitude = 0
+        self.prudence = 0
+        self.temperance = 0
+        self.justice = 0
 
     def print_character_sheet(self):
-        print("Vit-O-Matic Vigor Tester Results...")
+        print("Lobotomy Corporation Branch 13 ID Card")
         print("Name: "+self.name)
-        print("Archetype: "+self.archetype)
-        print("Level: "+str(self.level))
-        print("Good luck, buckaroo!")
-        
+        print("Department: "+self.department)
+        print("Rank: "+str(self.level))
+        print("")
+
+    def roll(self)->int:
+        r = random.randint(1, 20)
+        draw_d20(r)
+        return r
 
