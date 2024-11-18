@@ -35,21 +35,20 @@ if __name__ == '__main__':
         print_dramatic_text('Disciplinary')
         print_dramatic_text('Record')
         print_dramatic_text('Extraction')
-        print('To learn about a Department\'s function, type the name below. If you already know what each department does, type \'skip\'.')
-        control = print('Monitoring Abnormalities and planning of courses of action.')
-        information = print('Collection and organization of Abnormality data and construction of solutions to Abnormality-caused problems.')
-        training = print('Composition and regulation of company policy, management procedures, and training programs for new hires.')
-        safety = print('Establishment of strategies for multiple unfavorable scenarios, as well as construction of safety guidelines.')
-        central command = print('Department supervision and management revision.')
-        welfare = print('Damage control of Abnormality breaches to Agent wellbeing and construction of programs to better employee health.')
-        disciplinary = print('Handling of situations requiring force, be it panicking employee or breaching Abnormality.')
-        record = print('Recordkeeping of all information involving the facility.')
-        extraction = print('Handling of materials vital to facility upkeep, like Abnormality obtainment or E.G.O. distribution.')
-        skip = 
-        deptinfo = input()
-        print('What department do you work in?')
-        dept = input('I work in... ')
-        department = ['control',
+        print('To learn about a Department\'s function, type the name below. If you already know what each department does, type \'skip\'. Once you\'re done reading, type \'skip\'.')
+        dept_map = {
+            'control': 'Monitoring Abnormalities and planning of courses of action.',
+            'information': 'Collection and organization of Abnormality data and construction of solutions to Abnormality-caused problems.',
+            'training': 'Composition and regulation of company policy, management procedures, and training programs for new hires.',
+            'safety': 'Establishment of strategies for multiple unfavorable scenarios, as well as construction of safety guidelines.',
+            'central command': 'Department supervision and management revision.',
+            'welfare': 'Damage control of Abnormality breaches to Agent wellbeing and construction of programs to better employee health.',
+            'disciplinary': 'Handling of situations requiring force, be it panicking employee or breaching Abnormality.',
+            'record': 'Recordkeeping of all information involving the facility.',
+            'extraction': 'Handling of materials vital to facility upkeep, like Abnormality obtainment or E.G.O. distribution.'
+        }
+        
+        departments = ['control',
                     'information',
                     'training',
                     'safety',
@@ -58,7 +57,15 @@ if __name__ == '__main__':
                     'disciplinary',
                     'record',
                     'extraction']
-        while dept.lower() not in department:
+        skip = 'Moving along...'
+        deptinfo = input()
+
+        while deptinfo not in departments or deptinfo != 'skip':
+            deptinfo = input('Enter the department you\'d like to know more about.')
+        
+        print('What department do you work in?')
+        dept = input('I work in... ')
+        while dept.lower() not in departments:
             print('That can\'t be right.')
             dept = input('I work in... ')
         print()

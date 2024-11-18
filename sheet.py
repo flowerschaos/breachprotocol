@@ -2,9 +2,9 @@ import random
 from draw import draw_d20
 
 class Player:
-    def __init__(self, name: str, department: str):
+    def __init__(self, name: str, departments: str):
         self.name = name
-        self.department = department
+        self.departments = departments
 
         self.level = 1
 
@@ -16,7 +16,7 @@ class Player:
     def print_character_sheet(self):
         print("Lobotomy Corporation Branch 13 ID Card")
         print("Name: "+self.name)
-        print("Department: "+self.department)
+        print("Department: "+self.departments)
         print("Rank: "+str(self.level))
         print("")
 
