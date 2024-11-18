@@ -47,7 +47,6 @@ if __name__ == '__main__':
             'record': 'Recordkeeping of all information involving the facility.',
             'extraction': 'Handling of materials vital to facility upkeep, like Abnormality obtainment or E.G.O. distribution.'
         }
-        
         departments = ['control',
                     'information',
                     'training',
@@ -57,12 +56,12 @@ if __name__ == '__main__':
                     'disciplinary',
                     'record',
                     'extraction']
-        skip = 'Moving along...'
         deptinfo = input()
-
         while deptinfo not in departments or deptinfo != 'skip':
             deptinfo = input('Enter the department you\'d like to know more about.')
-        
+            if deptinfo = 'skip':
+                # bingus
+        message = dept_map[deptinfo]
         print('What department do you work in?')
         dept = input('I work in... ')
         while dept.lower() not in departments:
