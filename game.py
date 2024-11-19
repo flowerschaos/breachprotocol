@@ -9,20 +9,58 @@ def print_dramatic_text(text: str, delay=0.1):
         time.sleep(delay)
     print()
 
+departments = ['control',
+    'information',
+    'training',
+    'safety',
+    'central command', 
+    'welfare', 
+    'disciplinary',
+    'record',
+    'extraction']
+agent_names = [
+    'Bong-Bong',
+    'Paul',
+    'Emma',
+    'Arcade',
+    'Veronica',
+    'Mike',
+    'Jaylen',
+    'John',
+    'Pam'
+]
+selected_name = agent_names[random.randint(0,len(agent_names)-1)]
+selected_department = departments[random.randint(0,len(departments)-1)]
+
 def containment_breach()->int:
     rollin = random.randint(1, 5)
-    
+    if rollin == 1:
+        print('Nothing happens. You continue walking.')
+    if rollin == 2:
+        print('You are approached by...')
+        print_dramatic_text('🔥F-01-02 - \"SCORCHED GIRL\"🔥')
+    if rollin == 3:
+        print('One of your fellow Agents, '+selected_name+' from the '+' department, walks towards you. But as they approach, you can see that something has gone very wrong.')
+        print('You are approached by an employee possessed by...')
+        print_dramatic_text('👠O-04-08 - \"RED SHOES\"👠')
+    if rollin == 4:
+        print('You are approached by...')
+        print_dramatic_text('💧O-01-73 - \"THE KNIGHT OF DESPAIR\"💧')
+    if rollin == 5:
+        print('One of your fellow Agents, '+selected_name+' from the '+' department, walks towards you. But as they approach, you can see that something has gone very wrong.')
+        print('You are approached by the shell of...')
+        print_dramatic_text('🥩O-06-20 - \"NOTHING THERE\"🥩')
 if __name__ == '__main__':
-    print('\033[1;31m BREACH PROTOCOL\033[0;0m')
-    print('A high-stakes stint in a Lobotomy Corporation branch!')
+    print_dramatic_text('\033[1;31m BREACH PROTOCOL\033[0;0m')
+    print_dramatic_text('A high-stakes stint in a Lobotomy Corporation branch!')
     print()
     print('Lobotomy Corporation, as a game, belongs to Project Moon.')
     print('The rolling system in this adventure is taken from the community-made Project Moon TTRPG.')
-    print('Type \'begin workday\' to start.')
+    print_dramatic_text('Type \'begin workday\' to start.')
     start = input()
     if start == 'begin workday':
-        print('An alarm clock beeps, and you instinctively hit it. The time is 06:42. Time for work.')
-        print('Walking into the elevator after a very rushed morning routine, you tap your ID card onto the elevator.')
+        print_dramatic_text('An alarm clock beeps, and you instinctively hit it. The time is 06:42. Time for work.')
+        print_dramatic_text('Walking into the elevator after a very rushed morning routine, you tap your ID card onto the elevator.')
         print()
         # collecting user input
         print('What\'s your name?')
@@ -32,17 +70,18 @@ if __name__ == '__main__':
         if name == 'Felix':
             print('A feeling of dread overtakes you.')
         print()
-        print('There are 9 Departments in your facility. They are, in order,')
-        print('Control')
-        print('Information')
-        print('Training')
-        print('Safety')
-        print('Central Command')
-        print('Welfare')
-        print('Disciplinary')
-        print('Record')
-        print('Extraction')
-        print('To learn about a Department\'s function, type the name below. If you already know what each department does, or once you\'ve finished reading, type \'skip\'.')
+        print_dramatic_text('There are 9 Departments in your facility. They are, in order,')
+        print_dramatic_text('Control')
+        print_dramatic_text('Information')
+        print_dramatic_text('Training')
+        print_dramatic_text('Safety')
+        print_dramatic_text('Central Command')
+        print_dramatic_text('Welfare')
+        print_dramatic_text('Disciplinary')
+        print_dramatic_text('Record')
+        print_dramatic_text('Extraction')
+        print()
+        print_dramatic_text('To learn about a Department\'s function, type the name below. If you already know what each department does, or once you\'ve finished reading, type \'skip\'.')
         dept_map = {
             'control': 'Control - Monitoring Abnormalities and planning of courses of action.',
             'information': 'Information - Collection and organization of Abnormality data and construction of solutions to Abnormality-caused problems.',
@@ -54,15 +93,6 @@ if __name__ == '__main__':
             'record': 'Record - Recordkeeping of all information involving the facility.',
             'extraction': 'Extraction - Handling of materials vital to facility upkeep, like Abnormality obtainment or E.G.O. distribution.'
         }
-        departments = ['control',
-                    'information',
-                    'training',
-                    'safety',
-                    'central command', 
-                    'welfare', 
-                    'disciplinary',
-                    'record',
-                    'extraction']
         
         deptinfo = input('Enter the department you\'d like to know more about: ')
         while deptinfo != 'skip':
@@ -79,5 +109,16 @@ if __name__ == '__main__':
         print()
 
         player = Player(name, dept)
-        print('You look down at your identification card before sliding it back into your pocket.')
+        print_dramatic_text('You look down at your identification card before sliding it back into your pocket.')
         player.print_character_sheet()
+
+        print_dramatic_text('The halls seem quiet. Far too quiet. You continue to walk.')
+        containment_breach()
+        if breachwin: 
+            print_dramatic_text("You feel stronger having made your way forward. +2 to one random stat.")
+        if breachlose:
+            print_dramatic_text("You are mercilessly torn apart, dying painfully and miserably. Such is the life of a Lobotomy Corporation Agent.")
+            print_dramatic_text("GAME OVER.")
+            quit()
+        containment_breach()
+        containment_breach()

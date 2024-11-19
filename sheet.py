@@ -43,13 +43,33 @@ class Player:
 class Checks:
     def roll_fortitude(self)->int:
         r = self.roll()
-        return r+self.fortitude
+        if r == 12:
+            print("MAXIMUM ROLL!! +1 ADDED TO SCORE")
+            e = r+1
+            return e+self.fortitude
+        else:
+            return r+self.fortitude
     def roll_prudence(self)->int:
         r = self.roll()
-        return r+self.prudence
+        if r == 12:
+            print("MAXIMUM ROLL!! +1 ADDED TO SCORE")
+            e = r+1
+            return e+self.prudence
+        else:
+            return r+self.prudence
     def roll_temperance(self)->int:
         r = self.roll()
-        return r+self.temperance
+        if r == 12:
+            print("MAXIMUM ROLL!! +1 ADDED TO SCORE")
+            e = r+1
+            return e+self.temperance
+        else:
+            return r+self.temperance
     def roll_justice(self)->int:
         r = self.roll()
-        return r+self.justice
+        if r == 12:
+            print("MAXIMUM ROLL!! +1 ADDED TO SCORE")
+            e = r+1
+            return e+self.justice
+        else:
+            return r+self.justice
