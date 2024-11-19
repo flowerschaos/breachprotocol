@@ -24,6 +24,8 @@ if __name__ == '__main__':
         # collecting user input
         print('What\'s your name?')
         name = input('My name is...  ')
+        if name == "Brandon":
+            print("As you look at your card, a sense of scholarly pride fills you. +1 to Prudence.")
         print()
         print_dramatic_text('There are 9 Departments in your facility. They are, in order,')
         print_dramatic_text('Control')
@@ -58,15 +60,14 @@ if __name__ == '__main__':
                     'extraction']
         deptinfo = input()
         while deptinfo not in departments or deptinfo != 'skip':
-            deptinfo = input('Enter the department you\'d like to know more about.')
+            deptinfo = input('Enter the department you\'d like to know more about: ')
             if deptinfo = 'skip':
-                # bingus
-        message = dept_map[deptinfo]
-        print('What department do you work in?')
-        dept = input('I work in... ')
-        while dept.lower() not in departments:
-            print('That can\'t be right.')
+            message = dept_map[deptinfo]
+            print('What department do you work in?')
             dept = input('I work in... ')
+            while dept.lower() not in departments:
+                print('That can\'t be right.')
+                dept = input('I work in... ')
         print()
 
         player = Player(name, dept)

@@ -8,17 +8,26 @@ class Player:
 
         self.level = 1
 
-        self.fortitude = 0
-        self.prudence = 0
-        self.temperance = 0
-        self.justice = 0
+        self.fortitude = 1
+        self.prudence = 1
+        if name == "Brandon":
+            self.prudence = 2
+        self.temperance = 1
+        self.justice = 1
+
+        if name == 'Brandon':
+            self.prudence = 2
 
     def print_character_sheet(self):
         print("Lobotomy Corporation Branch 13 ID Card")
         print("Name: "+self.name)
         print("Department: "+self.departments)
         print("Rank: "+str(self.level))
-        print("")
+        print("Employee Proficiency Rankings")
+        print("Fortitude: "+self.fortitude)
+        print("Prudence: "+self.prudence)
+        print("Temperance: "+self.temperance)
+        print("Justice: "+self.justice)
 
     def roll(self)->int:
         r = random.randint(1, 20)
