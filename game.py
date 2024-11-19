@@ -19,11 +19,15 @@ if __name__ == '__main__':
     start = input()
     if start == 'begin workday':
         print('An alarm clock beeps, and you instinctively hit it. The time is 06:42. Time for work.')
-        print('You look down at your ID card as you stand in the elevator after rushing to get ready.')
+        print('Walking into the elevator after a very rushed morning routine, you tap your ID card onto the elevator.')
         print()
         # collecting user input
         print('What\'s your name?')
         name = input('My name is...  ')
+        if name == 'Brandon' or name == 'Mazey':
+            print('A sense of scholarly pride overtakes you. +1 Prudence.')
+        if name == 'Felix':
+            print('A feeling of dread overtakes you.')
         print()
         print('There are 9 Departments in your facility. They are, in order,')
         print('Control')
@@ -72,5 +76,5 @@ if __name__ == '__main__':
         print()
 
         player = Player(name, dept)
-
+        print('You look down at your identification card before sliding it back into your pocket.')
         player.print_character_sheet()
