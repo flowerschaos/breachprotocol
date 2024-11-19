@@ -1,0 +1,2 @@
+import random
+from draw import draw_d6

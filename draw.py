@@ -12,13 +12,12 @@
 
 def draw_d4(value: int) -> None:
     print("""
-          {} <- 1d4
+        {}
     """.format(value))
 
 def draw_d6(value: int) -> None:
     print("""
-            {} <- 1d6
-
+        {}
     """.format(value))
 
 
@@ -26,10 +25,5 @@ def draw_d20(value: int) -> None:
     # account for single and double digit numbers moving parts of the dice
     if value > 9:
         print("""             
-            {} <- 1d20
-    """.format(value))
-        
-    else: 
-        print("""             
-            {} <- 1d20
+        {}
     """.format(value))
