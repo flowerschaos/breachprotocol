@@ -40,7 +40,7 @@ class Player:
         draw_d6(a)
         draw_d6(b)
         return a+b
-
+class Checks:
     def roll_fortitude(self)->int:
         r = self.roll()
         return r+self.fortitude

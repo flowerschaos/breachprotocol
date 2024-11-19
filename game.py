@@ -1,5 +1,7 @@
 import time
+import random
 from sheet import Player
+from sheet import Checks
 
 def print_dramatic_text(text: str, delay=0.1):
     for char in text:
@@ -7,7 +9,8 @@ def print_dramatic_text(text: str, delay=0.1):
         time.sleep(delay)
     print()
 
-# def generate_enemy()->int:
+def containment_breach()->int:
+    rollin = random.randint(1, 5)
     
 if __name__ == '__main__':
     print('\033[1;31m BREACH PROTOCOL\033[0;0m')
