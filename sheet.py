@@ -29,10 +29,10 @@ class Player:
         print("Department: "+self.departments)
         print("Rank: "+str(self.level))
         print("Employee Proficiency Rankings")
-        print("Fortitude: "+str(self.fortitude))
-        print("Prudence: "+str(self.prudence))
-        print("Temperance: "+str(self.temperance))
-        print("Justice: "+str(self.justice))
+        print("\033[1;31mFortitude\033[0;0m: "+str(self.fortitude))
+        print("\033[1;33mPrudence\033[0;0m: "+str(self.prudence))
+        print("\033[0;35mTemperance\033[0;0m: "+str(self.temperance))
+        print("\033[0;36mJustice\033[0;0m: "+str(self.justice))
 
     def roll(self)->int:
         a = random.randint(1, 6)
@@ -40,7 +40,7 @@ class Player:
         draw_d6(a)
         draw_d6(b)
         return a+b
-class Checks:
+    
     def roll_fortitude(self)->int:
         r = self.roll()
         if r == 12:
@@ -49,6 +49,7 @@ class Checks:
             return e+self.fortitude
         else:
             return r+self.fortitude
+        
     def roll_prudence(self)->int:
         r = self.roll()
         if r == 12:
@@ -57,6 +58,7 @@ class Checks:
             return e+self.prudence
         else:
             return r+self.prudence
+        
     def roll_temperance(self)->int:
         r = self.roll()
         if r == 12:
@@ -65,6 +67,7 @@ class Checks:
             return e+self.temperance
         else:
             return r+self.temperance
+        
     def roll_justice(self)->int:
         r = self.roll()
         if r == 12:
