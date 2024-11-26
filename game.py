@@ -2,18 +2,11 @@ import time
 import random
 from sheet import Player
 
-def print_dramatic_text(text: str, delay=0.1):
+def print_dramatic_text(text: str, delay=0.01):
     for char in text:
         print(char, end='', flush=True)
         time.sleep(delay)
     print()
-
-def manual():
-    print('Rolls are based on 2d6+[Statistic Modifier].')
-    print('Unless a roll is Contested (where both parties are rolling to see who wins), the format below is followed:')
-    print('\033[0;32mSuccess\033[0m: >9')
-    print('\033[1;33mPartial Success\033[0m: 7-9')
-    print('\033[0;31mFailure\033[0m: 7<')
 
 def results():
     if player.roll_fortitude < 7 or player.roll_prudence < 7 or player.roll_temperance < 7 or player.roll_justice < 7:
@@ -49,29 +42,34 @@ selected_department = departments[random.randint(0,len(departments)-1)]
 def containment_breach() -> tuple:
     rollin = random.randint(1, 5)
     if rollin == 1:
-        print('Nothing happens. You continue walking.')
+        print('The sounds of your footsteps are accentuated by nearby... squeaking?')
+        print('You are approached by...')
+        print_dramatic_text('🐇0-00-00 - \"STANDARD TRAINING-DUMMY RABBIT\"🐇')
+        print_dramatic_text('COMBAT START!')
+        return (1, 'Fortitude')
     if rollin == 2:
         print('You are approached by...')
         print_dramatic_text('🐏T-02-99 - \"VOID DREAM\"🐏')
         print_dramatic_text('COMBAT START!')
-        return (9, 'Temperance')
+        return (6, 'Temperance')
     if rollin == 3:
-        print('One of your fellow Agents, '+selected_name+' from the '+' department, walks towards you. But as they approach, you can see that something has gone very wrong.')
+        print('One of your fellow Agents, '+selected_name+' from the '+selected_department+' department, walks towards you. But as they approach, you can see that something has gone very wrong.')
         print('You are approached by an employee possessed by...')
         print_dramatic_text('👠O-04-08 - \"RED SHOES\"👠')
         print_dramatic_text('COMBAT START!')
-        return (11, 'Fortitude')
+        return (7, 'Fortitude')
     if rollin == 4:
+        print('Swords from an unknown angle fly towards you as you walk by a specific containment unit.')
         print('You are approached by...')
         print_dramatic_text('💧O-01-73 - \"THE KNIGHT OF DESPAIR\"💧')
         print_dramatic_text('COMBAT START!')
-        return (14, 'Prudence')
+        return (8, 'Prudence')
     if rollin == 5:
         print('You hear an angelic chorus coming from somewhere. The end is nigh.')
         print('You are approached by...')
         print_dramatic_text('🕊T-03-46 - \"WHITENIGHT\"🕊')
         print_dramatic_text('COMBAT START!')
-        return (16, 'Justice')
+        return (12, 'Justice')
 if __name__ == '__main__':
     print_dramatic_text('\033[1;31m BREACH PROTOCOL\033[0;0m')
     print_dramatic_text('A high-stakes stint in a Lobotomy Corporation branch!')
@@ -92,6 +90,7 @@ if __name__ == '__main__':
         if name == 'Felix':
             print('A feeling of dread overtakes you.')
         print()
+        dept = ""
         print_dramatic_text('There are 9 Departments in your facility. They are, in order,')
         print_dramatic_text('Control')
         print_dramatic_text('Information')
@@ -133,8 +132,8 @@ if __name__ == '__main__':
         player = Player(name, dept)
         print_dramatic_text('You look down at your identification card before sliding it back into your pocket.')
         player.print_character_sheet()
-
-        
+        print()
+        print_dramatic_text('As you exit the elevator, stepping into the main room of the '+dept.capitalize()+' department. No chatter. It is dead silent.')
         # if breachwin: 
         #     print_dramatic_text("You feel stronger having made your way forward. +2 to one random stat.")
         # if breachlose:
@@ -144,22 +143,10 @@ if __name__ == '__main__':
         print_dramatic_text('Your goal is to find out where everybody has gone.')
         print_dramatic_text('Lobotomy Corporation has many dangerous things within it\'s facilities.')
         print_dramatic_text('Keep your wits close to you and your weapon closer. Good luck, Agent.')
-        print_dramatic_text('⚠️ If you are lost at any point, type \033[1mmanual\033[0;0m for assistance.')
         print()
         print_dramatic_text('The halls seem quiet. Far too quiet. You continue to walk.')
-        print('Roll a Prudence check: type \"roll prudence\"')
-        hallway = input()
-        if hallway == "manual":
-            manual()
-        else:
-            player.roll_prudence()
-        if player.roll_prudence() < 7:
-            print("You don't see anything.")
-        if player.roll_prudence() >= 7:
-            print("You can hear some screaming in the distance.")
-        if player.roll_prudence() > 9:
-            print("Something's there. You don't know where, but you know you aren't alone.")
-        while True:
+        enCounter = 0
+        while enCounter <= 5:
             requirement = containment_breach()
             requirement[0]
             requirement[1]
@@ -172,3 +159,6 @@ if __name__ == '__main__':
                 player.roll_temperance()
             if requirement[1] == 'Justice':
                 player.roll_justice()
+            enCounter+=1
+        if enCounter == 5:
+            print("stop pretty please")

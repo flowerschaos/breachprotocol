@@ -1,5 +1,4 @@
 import random
-from draw import draw_d6
 
 class Player:
     def __init__(self, name: str, departments: str):
@@ -29,16 +28,14 @@ class Player:
         print("Department: "+self.departments)
         print("Rank: "+str(self.level))
         print("Employee Proficiency Rankings")
-        print("\033[1;31mFortitude\033[0;0m: "+str(self.fortitude))
-        print("\033[1;33mPrudence\033[0;0m: "+str(self.prudence))
-        print("\033[0;35mTemperance\033[0;0m: "+str(self.temperance))
-        print("\033[0;36mJustice\033[0;0m: "+str(self.justice))
+        print("\033[1;31m\033[1mFortitude\033[0;0m: "+str(self.fortitude))
+        print("\033[1;33m\033[1mPrudence\033[0;0m: "+str(self.prudence))
+        print("\033[0;35m\033[1mTemperance\033[0;0m: "+str(self.temperance))
+        print("\033[0;36m\033[1mJustice\033[0;0m: "+str(self.justice))
 
     def roll(self)->int:
         a = random.randint(1, 6)
         b = random.randint(1, 6)
-        draw_d6(a)
-        draw_d6(b)
         return a+b
     
     def roll_fortitude(self)->int:
